@@ -1,0 +1,13 @@
+The src/pscf directory contains source files in namespace Pscf that can be 
+used in several different implementations of self-consistent field theory. 
+
+Subdirectories:
+
+   chem/        - molecular structure descriptors
+   inter/       - models of interaction (excess) free energy 
+   solvers/     - templates for modified diffusion eqn (MDE) solvers 
+   homogeneous/ - spatially homogeneous mixtures
+   math/        - mathematical utilities
+
+All classes in directory homogeneous are defined in a nested namespace 
+Pscf::Homogeneous 

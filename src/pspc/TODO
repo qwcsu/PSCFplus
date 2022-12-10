@@ -1,0 +1,19 @@
+TODO (for pspc pseudospectral CPU code)
+
+------------------------------------------------------------------------
+Housekeeping: (assigned to Dave)
+
+   - Complete unit tests for FieldIo
+
+   - Modify unit tests of system so that they can be incorporated
+     into the Pspc test composite. 
+
+------------------------------------------------------------------------
+Later
+
+   - Add point solvents.
+
+   - Add sweep functionality.
+
+   - Add relaxation iterator.
+

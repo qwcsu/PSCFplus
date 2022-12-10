@@ -1,0 +1,7 @@
+READ_W_BASIS	out/omegaOutLPOC_chiN_20_4530.bf
+ITERATE
+WRITE_W_BASIS	out/omegaOutLPOC_chiN_20_4530.bf
+WRITE_W_RGRID	out/omegaOutLPOC_chiN_20_4530.rf
+WRITE_C_RGRID	out/phiOutLPOC_chiN_20_4530.bf.rf
+
+FINISH

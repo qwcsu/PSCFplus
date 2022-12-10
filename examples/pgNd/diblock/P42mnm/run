@@ -1,0 +1,1 @@
+pscf_pg3d_d -e -p param -c command -1 4096 -2 256 > ./out/log_128_41.0_10-6&

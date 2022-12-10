@@ -1,0 +1,34 @@
+/*! \page user_command_page 3.3 Command Files
+
+ \ref user_param_page   (Prev) &nbsp; &nbsp; &nbsp; &nbsp; 
+ \ref user_example_page (Next) 
+<BR>
+
+For any PSCF simulation program, the parameter file is read first,
+followed by a command script. The command file controls the sequence
+of operations performed after the program is initialized using 
+information from the parameter file.  The name of the command file 
+is specified when the program is invoked as an argument of the -c 
+command line option.
+
+The command file contains a sequence of commands that are read and 
+executed in sequence. Each command begins with an all upper case label. 
+Some commands take one or more parameters, which must appear after the 
+upper case label, separated by whitespace. The program stops execution 
+and returns control to the operating system when it encounters the 
+command string 'FINISH' on a line by itself. 
+
+Each of the following subpages gives more detailed information about
+commands available for specific programs.
+
+   <ul style="list-style: none;">
+   <li> \subpage user_command_fd_page      "3.3.1 pscf_fd" </li>
+   <li> \subpage user_command_pc_page      "3.3.2 pscf_pcNd (CPU)" </li>
+   <li> \subpage user_command_pg_page      "3.3.3 pscf_pgNd (GPU)"</li>
+   </ul>
+
+ <BR>
+ \ref user_param_page   (Prev) &nbsp; &nbsp; &nbsp; &nbsp; 
+ \ref user_page         (Up) &nbsp; &nbsp; &nbsp; &nbsp; 
+ \ref user_example_page (Next) 
+*/

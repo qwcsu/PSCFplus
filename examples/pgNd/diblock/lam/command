@@ -1,0 +1,8 @@
+READ_W_BASIS    ./out/omega
+ITERATE
+WRITE_C_RGRID	./out/phi.rf
+WRITE_W_BASIS	./out/omega
+WRITE_C_BASIS	./out/phi.bf
+WRITE_THERMO   ./out/thermo  ./param
+FINISH
+

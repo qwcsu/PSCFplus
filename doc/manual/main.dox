@@ -1,0 +1,44 @@
+/*! \mainpage PSCF - Polymer Self-Consistent Field Theory
+
+PSCF is a C++ package for implementing the Edwards-Helfand self-consistent field
+theory for spatially inhomgeneous structures of block copolymers and polymer 
+mixtures.
+
+<h2>Contents:</h2>
+<ul style="list-style: none;">
+ <li> \subpage about_page "1. About"
+ </li>
+ <li> \subpage install_page "2. Installation"
+   <ul style="list-style: none;">
+   <li> \ref install_require_page  </li>
+   <li> \ref install_source_page  </li>
+   <li> \ref install_overview_page  </li>
+   <li> \ref install_environment_page  </li>
+   <li> \ref install_setup_page  </li>
+   <li> \ref install_inout_page  </li>
+   <li> \ref install_targets_page  </li>
+   <li> \ref install_configure_page  </li>
+   <li> \ref install_doc_page  </li>
+   </ul>
+ </li>
+ <li> \subpage user_page "3. User Guide"
+   <ul style="list-style: none;">
+   <li> \subpage user_usage_page     </li>
+   <li> \subpage user_param_page     </li>
+   <li> \subpage user_command_page  </li>
+   <li> \subpage user_example_page  </li>
+   <li> \subpage user_field_page  </li>
+   </ul>
+ </li>
+ <li> \subpage developer_page "4. Developer Information"
+   <ul style="list-style: none;">
+   <li> \ref developer_source_page </li>
+   <li> \ref developer_build_page </li>
+   <li> \ref developer_standards_page </li>
+   <li> \ref developer_param_page  </li>
+   <li> \ref developer_test_page </li>
+   </ul>
+ </li>
+</ul>
+ 
+*/

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cp config.mk_r config.mk

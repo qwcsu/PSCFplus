@@ -1,0 +1,6 @@
+READ_W_BASIS    ./in/omega
+ITERATE
+WRITE_C_RGRID	./out/phi.rf_3
+WRITE_W_RGRID	./out/omega.rf_3
+FINISH
+

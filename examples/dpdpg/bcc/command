@@ -1,0 +1,21 @@
+READ_W_BASIS         bcc_cmp/omega_03_3_30
+CHI_PATH             31  0.1  0.1   0.1   1.0  bcc_inc_run_chiN_0.3_3_30_31
+WRITE_W_BASIS        bcc_inc/omega_03_3_30
+
+FINISH
+CHI_PATH        18 0.02  0.2  0.01  1.1  bcc_run_chiN_03_2.69_17.5_18
+CHI_PATH        16  0.1  0.2  0.01  1.15  bcc_run_chiN_02_3
+EPS_PATH	 4.0   0.1   1.0   0.01  1.1  run_bcc_eps_1.0_4,0
+CHI_PATH        15.5 0.02  0.2  0.01  1.1  bcc_run_chiN_03_3_15.2_15.5
+EPS_PATH	     1.6   0.01   0.5   0.000105   1.1  run_bcc_eps_02_40_1.7_1.6 
+EPS_PATH	    3.5   0.05   0.5   0.000105   1.05  run_bcc_eps_03_40_3_3.5 
+CHI_PATH        15  0.1  0.1  0.01  1.0  bcc_run_chiN_03_1_16_15
+CHI_PATH        20  0.001  0.1  0.001  1.0  bcc_run_chiN
+EPS_PATH	    1.0   0.2   0.2   0.01  1.1  run_bcc_eps_02_40_3_1
+CHI_PATH        17  0.01  0.2  0.01  1.1  bcc_run_chiN_03_1_15_17
+CHI_PATH        17  0.01  0.2  0.01  1.1  bcc_run_chiN_03_1.1_15_17
+CHI_PATH        40  0.5  0.5  0.5  1.0  bcc_run_chiN_02_1.7_22_40
+CHI_PATH        15  0.5  0.5  0.5  1.0  bcc_run_chiN_03_2_30_15
+
+WRITE_C_RGRID                   ../rho/bcc/02_2_chi/rho_02_2_31
+WRITE_CN_RGRID                 ../rho/bcc/02_2_chi/rhoN_02_2_31

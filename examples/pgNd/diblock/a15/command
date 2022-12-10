@@ -1,0 +1,3 @@
+READ_W_RGRID      out/omega_128
+ITERATE
+FINISH

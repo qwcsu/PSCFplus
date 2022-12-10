@@ -1,0 +1,24 @@
+This src/ directory contains all C++ and Cuda source code for the PSCF 
+package.  Each of the subdirectories util/, pscf/, fd1d/, pspc/, and pspg/ 
+contain source code from a particular C++ namespace.  Subdirectories util/ 
+and test/ are maintained as separate github repositories that are installed 
+as submodules of the pscfpp respository.
+
+Subdirectories:
+  util/  general utilities for scientific computation (namespace Util)
+  pscf/  shared classes for package PSCF (namespace Pscf)
+  fd1d/  finite difference one-dimensional SCFT (namespace Pscf::Fd1d)
+  pspc/  pseudo-spectral periodic SCFT on a CPU (namespace Pscf::Pspc)
+  pspg/  pseudo-spectral periodic SCFT on a GPU (namespace Pscf::Pspg)
+  test/  unit testing framework (base classes)
+  draft/ unfinished or unused software drafts 
+
+Files: 
+  makefile  - main makefile for in-source compilation
+  configure - script for managing optional features
+  config.mk - main configuration file for in-source compilation
+  programs.mod - doxygen documentation of main programs
+  CONTENTS - this file
+
+Note: File src/config.mk is not in the git repository, and is installed 
+by the setup script.

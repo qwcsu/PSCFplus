@@ -1,0 +1,9 @@
+include $(BLD_DIR)/util/config.mk
+include $(BLD_DIR)/pscf/config.mk
+include $(BLD_DIR)/pspg/config.mk
+include $(BLD_DIR)/dpdpg/config.mk
+include $(SRC_DIR)/dpdpg/patterns.mk
+include $(SRC_DIR)/util/sources.mk
+include $(SRC_DIR)/pscf/sources.mk
+include $(SRC_DIR)/pspg/sources.mk
+include $(SRC_DIR)/dpdpg/sources.mk

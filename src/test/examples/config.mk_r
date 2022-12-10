@@ -1,0 +1,127 @@
+#-----------------------------------------------------------------------
+# file: config.mk
+#
+# Configuration file for make.
+#
+#-----------------------------------------------------------------------
+# Mesage Passing Library (Disable/enable by commenting out / uncommenting).
+# The message passing library (MPI) must be enabled to build a parallel
+# program.
+
+#TEST_MPI=1
+
+#-----------------------------------------------------------------------
+# C++11 Standard (Disable/enable by commenting out or uncommenting).
+# This is disabled by default. If C++11 is disabled, the code uses
+# only syntax and features defined in the older C++ 1998 standard.
+
+#TEST_CXX11=1
+
+#-----------------------------------------------------------------------
+# Compiler and MPI library identifiers:
+#
+# Users may select a compiler and a MPI library implementation by setting
+# values for the strings:
+#
+# COMPILER - string identifier for the compiler (e.g., gcc or intel)
+# MPI_LIB  - string identifier for the MPI library (e.g., mpicxx or openmpi)
+#
+# Each valid combination of these strings selects a block of definitions 
+# for variables that define the name of the compiler and the string of 
+# options that should be passed to the compiler and linker.
+
+COMPILER=gcc
+MPI_LIB=mpicxx
+
+# ------------------------------------------------------------------------
+# Variables used to define makefile pattern rules:
+#
+# Each of the following blocks of variable definitions sets values of the 
+# following variables for a particular compiler and mpi library:
+#
+# CXX         - C++ compiler executable name (must be in the users PATH)
+# CXXFLAGS    - flags used to compile source files, without linking
+# INCLUDES    - Directories to search for included header files
+# CXXSTD      - flag to define C++ language standard (c++98 or c++11)
+# NDEBUGFLAGS - flag to warn for ignored inline directives
+# TESTFLAGS   - flags used to compile unit test programs
+# LDFLAGS     - flags used to compile and link a main program
+# AR          - path to archiver executable, to create library (*.a) files
+# ARFLAGS     - flags used by archiver
+# MPIRUN      - command to run mpi, including -np option, e.g. "mpirun -np"
+#
+# The string NDEBUGFLAGS should contain compiler options that are desired
+# in production code but not for debug versions, such as warnings of ignored
+# inline directives that can produce excessive warnings in debug mode.
+# It is automatically appended to CXXFLAGS in the file util/config.mk if 
+# TEST_DEBUG is not defined in this file.
+#
+# Pattern rules for compiling source files in the util/, inter, mcMd/ and 
+# ddMd/ directories are defined in the patterns.mk files in each of these 
+# namespace-level directories. In each of these, the basic pattern is
+#
+# %.o:%.cpp
+#	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(INCLUDES) $(DEFINES) -c -o $@ $<
+#
+# The variable $(CPPDEFS), which contains a list of C preprocessor
+# macro definitions, is not defined in this file. Instead, it is assigned 
+# a different value in each of namespace level patterns.mk files. The 
+# value of $(CPPDEFS) for each namespace contains a string of compiler
+# options that define only the preprocessor macro definitions used in 
+# that namespace, which are defined using the compiler "-D" option.
+# ------------------------------------------------------------------------
+# Settings for specific compilers and mpi libraries:
+
+# Global default values (modified for particular compilers below)
+INCLUDES= -I$(SRC_DIR)
+ifdef TEST_CXX11
+   CXX_STD = --std=c++11
+else
+   CXX_STD = --std=c++98
+endif
+LDFLAGS=
+ARFLAGS=rcs
+MPIRUN=mpirun -np
+
+#-- Gnu GCC compiler ------
+ifeq ($(COMPILER),gcc)
+   CXXFLAGS= -O3 -ffast-math -Wall $(CXX_STD)
+   WINLINE= -Winline
+   TESTFLAGS= -Wall $(CXX_STD)
+   AR=ar
+   ifneq ($(TEST_MPI),1)
+      # Gnu g++ (no mpi)
+      CXX=g++
+   else
+      ifeq ($(MPI_LIB),mpicxx)
+         # Gnu g++ using a module and mpicxx macro
+         CXX=mpicxx
+      endif
+      ifeq ($(MPI_LIB),openmpi)
+         # Gnu g++ using the openmpi library explicitly
+         CXX=g++
+         INCLUDES+= -I/opt/local/include/openmpi
+         LDFLAGS+= -L/opt/local/lib -lmpi_cxx -lmpi
+      endif
+   endif
+endif
+
+# -- Intel ICC compiler ---
+ifeq ($(COMPILER),intel)
+   AR=xiar
+   WINLINE=
+   ifneq ($(TEST_MPI),1)
+      # Serial intel icpc compiler (no mpi)
+      CXX=icpc
+      CXXFLAGS= -fast -ansi $(CXX_STD)
+      TESTFLAGS= -ansi $(CXX_STD)
+   else
+      ifeq ($(MPI_LIB),mpicxx)
+         # Intel icpc compiler using linux modules and mpicxx script
+         CXX=mpicxx
+         CXXFLAGS= -ansi $(CXX_STD)
+         TESTFLAGS= -ansi $(CXX_STD)
+      endif
+   endif
+endif
+

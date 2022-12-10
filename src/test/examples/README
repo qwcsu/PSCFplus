@@ -1,0 +1,35 @@
+USAGE EXAMPLES
+--------------
+
+This directory contains three simple usage examples for the unit test 
+framework:
+
+example1 constructs and runs a UnitTestRunner. 
+example2 constructs and runs a CompositeTestRunner for two unit tests.
+
+example3 is compiled only if TEST_MPI is defined, and demonstrates use 
+of a UnitTestRunner for an MPI job.
+
+COMPILATION
+-----------
+
+To compile the examples:
+
+1) Before the first time you attempt to compile cd to the examples
+directory and invoke the command
+
+> ./setup
+
+You should only have to do this once.  This creates a new file named
+config.mk.
+
+Note: The setup command simply copies the file config.mk_r to create
+a file named config.mk.  The config.mk_r file is the default repository 
+version of the configuration file, whereas config.mk is the user copy. 
+After setup, users may edit the file config.mk to set up the compiler 
+command or compiler options, but should avoid modifying config.mk_r.
+
+2) Eneter:
+
+> make all
+

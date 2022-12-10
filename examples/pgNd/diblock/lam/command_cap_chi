@@ -1,0 +1,9 @@
+READ_W_BASIS    ./out/omega
+CHI_PATH	chi(0   1)    16.0   0.1   1.0   0.01   1.2   run_chi_15_16
+WRITE_C_RGRID	./out/phi.rf
+WRITE_W_BASIS	./out/omega
+WRITE_C_BASIS	./out/phi.bf
+FINISH
+
+
+#CHI_PATH	chi(i   j)    end_chi   initial_inc   max_inc   min_inc   factor   filename
